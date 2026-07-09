@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --color-brand-50: #f8fafc;
+  --color-brand-100: #f1f5f9;
+  --color-brand-200: #e2e8f0;
+  --color-brand-300: #cbd5e1;
+  --color-brand-400: #94a3b8;
+  --color-brand-500: #64748b;
+  --color-brand-600: #475569;
+  --color-brand-700: #334155;
+  --color-brand-800: #1e293b;
+  --color-brand-900: #0f172a;
+  --color-brand-950: #020617;
+}
+
+:root {
+  --background: #FAF9F5;
+  --foreground: #1A1A1A;
+}
+
+/* Custom minimal scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.12);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.24);
+}
+
+/* Drafting Table & Technical design utilities */
+.bg-grid-drafting {
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-grid-drafting-fine {
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.02) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.drafting-card {
+  background: #ffffff;
+  border: 1px solid #1A1A1A;
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.drafting-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px #1A1A1A;
+}
+
+.drafting-card-active {
+  background: #ffffff;
+  border: 1px solid #1A1A1A;
+  box-shadow: 4px 4px 0px 0px #E65100; /* technical orange */
+}
+
+/* Linear ruler marking generation */
+.ruler-ticks-h {
+  background-image: repeating-linear-gradient(90deg, 
+    #1A1A1A 0px, #1A1A1A 1px, 
+    transparent 1px, transparent 10px
+  );
+  background-size: 100% 8px;
+  background-repeat: repeat-x;
+}
+
+.ruler-ticks-h-sub {
+  background-image: repeating-linear-gradient(90deg, 
+    rgba(26, 26, 26, 0.4) 0px, rgba(26, 26, 26, 0.4) 1px, 
+    transparent 1px, transparent 2px
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-x;
+}
+
+.ruler-ticks-v {
+  background-image: repeating-linear-gradient(180deg, 
+    #1A1A1A 0px, #1A1A1A 1px, 
+    transparent 1px, transparent 10px
+  );
+  background-size: 8px 100%;
+  background-repeat: repeat-y;
+}
+
+.ruler-ticks-v-sub {
+  background-image: repeating-linear-gradient(180deg, 
+    rgba(26, 26, 26, 0.4) 0px, rgba(26, 26, 26, 0.4) 1px, 
+    transparent 1px, transparent 2px
+  );
+  background-size: 4px 100%;
+  background-repeat: repeat-y;
+}
+
+/* Tech input outlines */
+input, textarea, select {
+  background-color: #FAF9F5;
+  border: 1px solid #D4D4D8 !important;
+  border-radius: 4px !important;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11.5px !important;
+  color: #1A1A1A;
+  transition: all 0.15s ease-in-out;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"] {
+  height: 34px !important;
+  padding: 0 12px !important;
+}
+
+select {
+  height: 34px !important;
+  padding: 0 28px 0 12px !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  background-size: 16px 16px !important;
+  line-height: normal !important;
+}
+
+textarea {
+  padding: 8px 12px !important;
+  min-height: 72px !important;
+}
+
+input:hover, textarea:hover, select:hover {
+  border-color: #1A1A1A !important;
+  background-color: #ffffff;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #E65100 !important;
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.1) !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+

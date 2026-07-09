@@ -1,0 +1,30 @@
+{
+  "name": "@openresume/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "tsc",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.6.0",
+    "@google/genai": "^1.0.0",
+    "@openresume/db": "workspace:*",
+    "@openresume/schema": "workspace:*",
+    "better-auth": "^1.6.0",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.9.0",
+    "uuid": "^11.1.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250701.0",
+    "@types/uuid": "^10.0.0",
+    "drizzle-kit": "^0.31.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.15.0"
+  }
+}

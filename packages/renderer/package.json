@@ -1,0 +1,35 @@
+{
+  "name": "@openresume/renderer",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./templates": {
+      "types": "./dist/templates/index.d.ts",
+      "default": "./dist/templates/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^20.0.0",
+    "react-dom": "^20.0.0"
+  },
+  "dependencies": {
+    "@openresume/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.0"
+  }
+}
