@@ -58,6 +58,41 @@ To use AI features, the user pastes a key from [Google AI Studio](https://aistud
 | `pnpm db:generate` | Generate Drizzle migration from schema |
 | `pnpm db:migrate` | Apply D1 migrations |
 | `pnpm db:studio` | Open Drizzle Studio |
+| `pnpm --filter @openresume/api deploy` | Deploy the API to Cloudflare Workers |
+| `pnpm --filter @openresume/web deploy` | Build and deploy the web via OpenNext |
+
+## Deploying
+
+The API is Hono on Cloudflare Workers + D1. The web is Next.js wrapped with [@opennextjs/cloudflare](https://opennext.js.org/cloudflare) and deployed to CF Workers (Workers Assets for static files, server function for SSR).
+
+First-time setup:
+
+```bash
+# 1. Login to Cloudflare
+npx wrangler login
+
+# 2. Create D1 database and copy the ID into apps/api/wrangler.toml
+cd apps/api
+npx wrangler d1 create openresume-db
+
+# 3. Apply migrations
+npx wrangler d1 migrations apply openresume-db --remote
+
+# 4. Set required secrets
+npx wrangler secret put BETTER_AUTH_SECRET   # 32+ char random string
+
+# 5. Deploy
+pnpm deploy
+```
+
+For the web:
+
+```bash
+cd apps/web
+pnpm deploy
+```
+
+`wrangler deploy` will use the `vars` block in `apps/web/wrangler.jsonc` for `NEXT_PUBLIC_API_URL` — update it if your API lives at a different URL.
 
 ## License
 
