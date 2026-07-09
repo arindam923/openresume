@@ -3,9 +3,6 @@ import * as schema from "@openresume/db";
 
 export type Env = {
   DB: D1Database;
-  RESUME_PDFS: R2Bucket;
-  CACHE: KVNamespace;
-  PDF_QUEUE: Queue;
   BETTER_AUTH_SECRET: string;
   BETTER_AUTH_URL: string;
   GOOGLE_CLIENT_ID: string;

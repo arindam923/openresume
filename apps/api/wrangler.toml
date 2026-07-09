@@ -7,33 +7,16 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "openresume-db"
-database_id = "your-database-id"
+database_id = "09a701f7-1462-4c69-b97e-f2e256706c48"
 migrations_dir = "../../packages/db/migrations"
 
-# R2 bucket
-[[r2_buckets]]
-binding = "RESUME_PDFS"
-bucket_name = "openresume-pdfs"
-
-# KV namespace
-[[kv_namespaces]]
-binding = "CACHE"
-id = "your-kv-id"
-
-# Queue
-[[queues.producers]]
-binding = "PDF_QUEUE"
-queue = "openresume-pdf-queue"
-
 [vars]
-BETTER_AUTH_URL = "http://localhost:8787"
+BETTER_AUTH_URL = "https://openresume-api.arindam92.workers.dev"
 
-# Secrets (set via wrangler secret put)
-# BETTER_AUTH_SECRET
-# GOOGLE_CLIENT_ID
-# GOOGLE_CLIENT_SECRET
-# GITHUB_CLIENT_ID
-# GITHUB_CLIENT_SECRET
-# APPLE_CLIENT_ID
-# APPLE_CLIENT_SECRET
-# GEMINI_API_KEY
+# Secrets are set via `wrangler secret put`:
+#   BETTER_AUTH_SECRET (required, 32+ chars)
+#   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET (optional)
+#   GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET (optional)
+#   APPLE_CLIENT_ID, APPLE_CLIENT_SECRET (optional)
+#   GEMINI_API_KEY (optional — AI is BYOK)
+

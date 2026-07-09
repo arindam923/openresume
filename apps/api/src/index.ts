@@ -18,8 +18,13 @@ const app = new Hono<{ Bindings: Env; Variables: { auth: { user: { id: string } 
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:3000", "https://openresume.dev"],
-    allowHeaders: ["Content-Type", "Authorization", "Cookie"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:8787",
+      "https://openresume.dev",
+      "https://openresume.pages.dev",
+    ],
+    allowHeaders: ["Content-Type", "Authorization", "Cookie", "X-Byok-Key"],
     allowMethods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
     maxAge: 86400,

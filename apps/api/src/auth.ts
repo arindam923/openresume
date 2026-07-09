@@ -15,7 +15,12 @@ export function createAuth(env: Env): Auth {
   return betterAuth({
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,
-    trustedOrigins: ["http://localhost:3000", "https://openresume.dev"],
+    trustedOrigins: [
+      "http://localhost:3000",
+      "http://localhost:8787",
+      "https://openresume.dev",
+      "https://openresume.pages.dev",
+    ],
     database: drizzleAdapter(db, {
       provider: "sqlite",
       schema,
